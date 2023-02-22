@@ -2,7 +2,7 @@ const api_url = "https://healthriskcalculatorapi.azurewebsites.net";
 
 setInterval(function () {
   ping();
-}, 300000);
+}, 120000);
 
 function ping() {
   $.ajax({
@@ -15,7 +15,7 @@ function ping() {
   });
 }
 
-function calculateRisk() {
+function calculateTotalRisk() {
   data = {
     age: 10,
     bmi: 0,
@@ -100,5 +100,5 @@ function calculateDiseaseRisk() {
 
 $(window).on("load", function () {
   ping();
-  calculateRisk();
+  calculateTotalRisk();
 });
