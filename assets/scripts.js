@@ -41,7 +41,7 @@ function calculateAgeRisk() {
 
   $.ajax({
     type: "POST",
-    url: api_url + "/",
+    url: api_url + "/age_to_points",
     data: JSON.stringify(data),
     contentType: "application/json",
     success: function (response) {
@@ -57,7 +57,7 @@ function calculateBMIRisk() {
 
   $.ajax({
     type: "POST",
-    url: api_url + "/",
+    url: api_url + "/bmi_to_points",
     data: JSON.stringify(data),
     contentType: "application/json",
     success: function (response) {
@@ -73,7 +73,7 @@ function calculateBPRisk() {
 
   $.ajax({
     type: "POST",
-    url: api_url + "/",
+    url: api_url + "/bp_to_points",
     data: JSON.stringify(data),
     contentType: "application/json",
     success: function (response) {
@@ -89,7 +89,7 @@ function calculateDiseaseRisk() {
 
   $.ajax({
     type: "POST",
-    url: api_url + "/",
+    url: api_url + "/disease_to_points",
     data: JSON.stringify(data),
     contentType: "application/json",
     success: function (response) {
