@@ -36,7 +36,7 @@ function calculateTotalRisk() {
 
 function calculateAgeRisk() {
   data = {
-    age: 0,
+    age: 40,
   };
 
   $.ajax({
@@ -52,7 +52,8 @@ function calculateAgeRisk() {
 
 function calculateBMIRisk() {
   data = {
-    bmi: 0,
+    height: 75,
+    weight: 160,
   };
 
   $.ajax({
@@ -68,7 +69,8 @@ function calculateBMIRisk() {
 
 function calculateBPRisk() {
   data = {
-    bp: 0,
+    systolic: 120,
+    diastolic: 80,
   };
 
   $.ajax({
@@ -100,5 +102,8 @@ function calculateDiseaseRisk() {
 
 $(window).on("load", function () {
   ping();
+  calculateAgeRisk();
+  calculateBMIRisk();
+  calculateBPRisk();
   calculateTotalRisk();
 });
