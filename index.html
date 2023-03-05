@@ -7,7 +7,7 @@
       content="width=device-width, initial-scale=1, shrink-to-fit=no"
     />
 
-    <title>Template</title>
+    <title>Health Insurance Risk Calculator</title>
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
       rel="stylesheet"
@@ -29,17 +29,218 @@
         </div>
       </div>
       <div class="row text-center">
-        <div class="col-lg-3 col">
-          Age
+        <div class="col-lg-3 col-md-6 col-12 mt-3">
+          <div class="row">
+            <div class="col">Age</div>
+          </div>
+          <div class="row mt-3">
+            <div class="col">
+              <div class="input-group">
+                <span class="input-group-text">Age</span>
+                <input
+                  type="number"
+                  class="form-control age-input"
+                  id="age"
+                  value="0"
+                />
+              </div>
+            </div>
+          </div>
+          <div class="row mt-2">
+            <div class="col">
+              <div class="input-group">
+                <span class="input-group-text">Risk Points</span>
+                <input
+                  type="number"
+                  class="form-control"
+                  id="age-points"
+                  disabled
+                />
+              </div>
+            </div>
+          </div>
         </div>
-        <div class="col-lg-3 col">
-          BMI
+        <div class="col-lg-3 col-md-6 col-12 mt-3">
+          <div class="row">
+            <div class="col">BMI</div>
+          </div>
+          <div class="row mt-3">
+            <div class="col">
+              <div class="input-group">
+                <span class="input-group-text">Height (in)</span>
+                <input
+                  type="number"
+                  class="form-control bmi-input"
+                  id="height"
+                  value="0"
+                />
+              </div>
+            </div>
+          </div>
+          <div class="row mt-2">
+            <div class="col">
+              <div class="input-group">
+                <span class="input-group-text">Weight (lbs)</span>
+                <input
+                  type="number"
+                  class="form-control bmi-input"
+                  id="weight"
+                  value="0"
+                />
+              </div>
+            </div>
+          </div>
+          <div class="row mt-2">
+            <div class="col">
+              <div class="input-group">
+                <span class="input-group-text">Risk Points</span>
+                <input
+                  class="form-control"
+                  type="number"
+                  id="bmi-points"
+                  disabled
+                />
+              </div>
+            </div>
+          </div>
+          <div class="row mt-2">
+            <div class="col">
+              <div class="input-group">
+                <span class="input-group-text">Risk Type</span>
+                <input class="form-control" id="bmi-risk" disabled />
+              </div>
+            </div>
+          </div>
         </div>
-        <div class="col-lg-3 col">
-          Blood Pressure
+        <div class="col-lg-3 col-md-6 col-12 mt-3">
+          <div class="row">
+            <div class="col">Blood Pressure</div>
+          </div>
+          <div class="row mt-3">
+            <div class="col">
+              <div class="input-group">
+                <span class="input-group-text">Systolic</span>
+                <input
+                  type="number"
+                  class="form-control bp-input"
+                  id="systolic"
+                  value="120"
+                />
+              </div>
+            </div>
+          </div>
+          <div class="row mt-2">
+            <div class="col">
+              <div class="input-group">
+                <span class="input-group-text">Diastolic</span>
+                <input
+                  type="number"
+                  class="form-control bp-input"
+                  id="diastolic"
+                  value="80"
+                />
+              </div>
+            </div>
+          </div>
+          <div class="row mt-2">
+            <div class="col">
+              <div class="input-group">
+                <span class="input-group-text">Risk Points</span>
+                <input
+                  class="form-control"
+                  type="number"
+                  id="bp-points"
+                  disabled
+                />
+              </div>
+            </div>
+          </div>
+          <div class="row mt-2">
+            <div class="col">
+              <div class="input-group">
+                <span class="input-group-text">Risk Type</span>
+                <input class="form-control" id="bp-risk" disabled />
+              </div>
+            </div>
+          </div>
         </div>
-        <div class="col-lg-3 col">
-          Family Diseases
+        <div class="col-lg-3 col-md-6 col-12 mt-3">
+          <div class="row">
+            <div class="col">Family Diseases</div>
+          </div>
+          <div class="row mt-3">
+            <div class="col">
+              <ul class="list-group">
+                <li class="list-group-item">
+                  <input
+                    class="form-check-input me-1 disease-input"
+                    type="checkbox"
+                    value=""
+                    id="diabetes"
+                  />
+                  <label class="form-check-label stretched-link" for="diabetes"
+                    >Diabetes</label
+                  >
+                </li>
+                <li class="list-group-item">
+                  <input
+                    class="form-check-input me-1 disease-input"
+                    type="checkbox"
+                    value=""
+                    id="cancer"
+                  />
+                  <label class="form-check-label stretched-link" for="cancer"
+                    >Cancer</label
+                  >
+                </li>
+                <li class="list-group-item">
+                  <input
+                    class="form-check-input me-1 disease-input"
+                    type="checkbox"
+                    value=""
+                    id="alzhe"
+                  />
+                  <label class="form-check-label stretched-link" for="alzhe"
+                    >Alzheimer’s</label
+                  >
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="row mt-2">
+            <div class="col">
+              <div class="input-group">
+                <span class="input-group-text">Risk Points</span>
+                <input
+                  class="form-control"
+                  type="number"
+                  id="disease-points"
+                  disabled
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row text-center mt-3">
+        <div class="col-4 col"></div>
+        <div class="col-4 col">
+          <div class="row mt-2">
+            <div class="col">
+              <div class="input-group">
+                <span class="input-group-text">Overall Score</span>
+                <input class="form-control" id="overall-points" disabled />
+              </div>
+            </div>
+          </div>
+          <div class="row mt-2">
+            <div class="col">
+              <div class="input-group">
+                <span class="input-group-text">Overall Risk</span>
+                <input class="form-control" id="overall-risk" disabled />
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>

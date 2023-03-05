@@ -17,10 +17,10 @@ function ping() {
 
 function calculateTotalRisk() {
   data = {
-    age: 10,
-    bmi: 0,
-    bp: 0,
-    disease: 0,
+    age: parseInt($("#age-points").val()),
+    bmi: parseInt($("#bmi-points").val()),
+    bp: parseInt($("#bp-points").val()),
+    disease: parseInt($("#disease-points").val()),
   };
 
   $.ajax({
@@ -29,14 +29,15 @@ function calculateTotalRisk() {
     data: JSON.stringify(data),
     contentType: "application/json",
     success: function (response) {
-      console.log(response);
+      $("#overall-points").val(response.score);
+      $("#overall-risk").val(response.risk);
     },
   });
 }
 
 function calculateAgeRisk() {
   data = {
-    age: 40,
+    age: $("#age").val(),
   };
 
   $.ajax({
@@ -45,15 +46,16 @@ function calculateAgeRisk() {
     data: JSON.stringify(data),
     contentType: "application/json",
     success: function (response) {
-      console.log(response);
+      $("#age-points").val(response.points);
+      calculateTotalRisk();
     },
   });
 }
 
 function calculateBMIRisk() {
   data = {
-    height: 75,
-    weight: 160,
+    height: $("#height").val(),
+    weight: $("#weight").val(),
   };
 
   $.ajax({
@@ -62,15 +64,17 @@ function calculateBMIRisk() {
     data: JSON.stringify(data),
     contentType: "application/json",
     success: function (response) {
-      console.log(response);
+      $("#bmi-points").val(response.points);
+      $("#bmi-risk").val(response.bmi);
+      calculateTotalRisk();
     },
   });
 }
 
 function calculateBPRisk() {
   data = {
-    systolic: 120,
-    diastolic: 80,
+    systolic: $("#systolic").val(),
+    diastolic: $("#diastolic").val(),
   };
 
   $.ajax({
@@ -79,14 +83,18 @@ function calculateBPRisk() {
     data: JSON.stringify(data),
     contentType: "application/json",
     success: function (response) {
-      console.log(response);
+      $("#bp-points").val(response.points);
+      $("#bp-risk").val(response.bp);
+      calculateTotalRisk();
     },
   });
 }
 
 function calculateDiseaseRisk() {
   data = {
-    disease: 10,
+    diabetes: $("#diabetes").is(":checked"),
+    cancer: $("#cancer").is(":checked"),
+    alzhe: $("#alzhe").is(":checked"),
   };
 
   $.ajax({
@@ -95,10 +103,27 @@ function calculateDiseaseRisk() {
     data: JSON.stringify(data),
     contentType: "application/json",
     success: function (response) {
-      console.log(response);
+      $("#disease-points").val(response.points);
+      calculateTotalRisk();
     },
   });
 }
+
+$(".age-input").on("keyup", function () {
+  calculateAgeRisk();
+});
+
+$(".bmi-input").on("keyup", function () {
+  calculateBMIRisk();
+});
+
+$(".bp-input").on("keyup", function () {
+  calculateBPRisk();
+});
+
+$(".disease-input").on("change", function () {
+  calculateDiseaseRisk();
+});
 
 $(window).on("load", function () {
   ping();
@@ -106,4 +131,5 @@ $(window).on("load", function () {
   calculateBMIRisk();
   calculateBPRisk();
   calculateTotalRisk();
+  calculateDiseaseRisk();
 });
