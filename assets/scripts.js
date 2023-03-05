@@ -36,12 +36,12 @@ function calculateTotalRisk() {
 
 function calculateAgeRisk() {
   data = {
-    age: 0,
+    age: 40,
   };
 
   $.ajax({
     type: "POST",
-    url: api_url + "/",
+    url: api_url + "/age_to_points",
     data: JSON.stringify(data),
     contentType: "application/json",
     success: function (response) {
@@ -52,12 +52,13 @@ function calculateAgeRisk() {
 
 function calculateBMIRisk() {
   data = {
-    bmi: 0,
+    height: 75,
+    weight: 160,
   };
 
   $.ajax({
     type: "POST",
-    url: api_url + "/",
+    url: api_url + "/bmi_to_points",
     data: JSON.stringify(data),
     contentType: "application/json",
     success: function (response) {
@@ -68,12 +69,13 @@ function calculateBMIRisk() {
 
 function calculateBPRisk() {
   data = {
-    bp: 0,
+    systolic: 120,
+    diastolic: 80,
   };
 
   $.ajax({
     type: "POST",
-    url: api_url + "/",
+    url: api_url + "/bp_to_points",
     data: JSON.stringify(data),
     contentType: "application/json",
     success: function (response) {
@@ -89,7 +91,7 @@ function calculateDiseaseRisk() {
 
   $.ajax({
     type: "POST",
-    url: api_url + "/",
+    url: api_url + "/disease_to_points",
     data: JSON.stringify(data),
     contentType: "application/json",
     success: function (response) {
@@ -100,5 +102,8 @@ function calculateDiseaseRisk() {
 
 $(window).on("load", function () {
   ping();
+  calculateAgeRisk();
+  calculateBMIRisk();
+  calculateBPRisk();
   calculateTotalRisk();
 });
