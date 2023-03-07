@@ -40,6 +40,14 @@ function calculateAgeRisk() {
     age: $("#age").val(),
   };
 
+  if ($("#age").val() < 10) {
+    $("#age").removeClass("is-valid");
+    $("#age").addClass("is-invalid");
+  } else {
+    $("#age").removeClass("is-invalid");
+    $("#age").addClass("is-valid");
+  }
+
   $.ajax({
     type: "POST",
     url: api_url + "/age_to_points",
@@ -57,6 +65,21 @@ function calculateBMIRisk() {
     height: $("#height").val(),
     weight: $("#weight").val(),
   };
+
+  if ($("#height").val() < 24) {
+    $("#height").removeClass("is-valid");
+    $("#height").addClass("is-invalid");
+  } else {
+    $("#height").removeClass("is-invalid");
+    $("#height").addClass("is-valid");
+  }
+  if ($("#weight").val() < 50) {
+    $("#weight").removeClass("is-valid");
+    $("#weight").addClass("is-invalid");
+  } else {
+    $("#weight").removeClass("is-invalid");
+    $("#weight").addClass("is-valid");
+  }
 
   $.ajax({
     type: "POST",
@@ -76,6 +99,21 @@ function calculateBPRisk() {
     systolic: $("#systolic").val(),
     diastolic: $("#diastolic").val(),
   };
+
+  if ($("#systolic").val() < 80) {
+    $("#systolic").removeClass("is-valid");
+    $("#systolic").addClass("is-invalid");
+  } else {
+    $("#systolic").removeClass("is-invalid");
+    $("#systolic").addClass("is-valid");
+  }
+  if ($("#diastolic").val() < 40) {
+    $("#diastolic").removeClass("is-valid");
+    $("#diastolic").addClass("is-invalid");
+  } else {
+    $("#diastolic").removeClass("is-invalid");
+    $("#diastolic").addClass("is-valid");
+  }
 
   $.ajax({
     type: "POST",
