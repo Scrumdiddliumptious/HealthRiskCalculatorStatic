@@ -15,6 +15,13 @@ function ping() {
   });
 }
 
+function removeBG(elementId) {
+  $(elementId).removeClass("bg-success");
+  $(elementId).removeClass("bg-warning");
+  $(elementId).removeClass("bg-danger");
+  $(elementId).removeClass("bg-warning-subtle");
+}
+
 function calculateTotalRisk() {
   data = {
     age: parseInt($("#age-points").val()),
@@ -31,6 +38,10 @@ function calculateTotalRisk() {
     success: function (response) {
       $("#overall-points").val(response.score);
       $("#overall-risk").val(response.risk);
+      removeBG("#overall-points");
+      removeBG("#overall-risk");
+      $("#overall-points").addClass(response.color);
+      $("#overall-risk").addClass(response.color);
     },
   });
 }
@@ -55,6 +66,8 @@ function calculateAgeRisk() {
     contentType: "application/json",
     success: function (response) {
       $("#age-points").val(response.points);
+      removeBG("#age-points");
+      $("#age-points").addClass(response.color);
       calculateTotalRisk();
     },
   });
@@ -89,6 +102,11 @@ function calculateBMIRisk() {
     success: function (response) {
       $("#bmi-points").val(response.points);
       $("#bmi-risk").val(response.bmi);
+
+      removeBG("#bmi-points");
+      removeBG("#bmi-risk");
+      $("#bmi-points").addClass(response.color);
+      $("#bmi-risk").addClass(response.color);
       calculateTotalRisk();
     },
   });
@@ -123,6 +141,10 @@ function calculateBPRisk() {
     success: function (response) {
       $("#bp-points").val(response.points);
       $("#bp-risk").val(response.bp);
+      removeBG("#bp-points");
+      removeBG("#bp-risk");
+      $("#bp-points").addClass(response.color);
+      $("#bp-risk").addClass(response.color);
       calculateTotalRisk();
     },
   });
@@ -142,6 +164,9 @@ function calculateDiseaseRisk() {
     contentType: "application/json",
     success: function (response) {
       $("#disease-points").val(response.points);
+
+      removeBG("#disease-points");
+      $("#disease-points").addClass(response.color);
       calculateTotalRisk();
     },
   });
